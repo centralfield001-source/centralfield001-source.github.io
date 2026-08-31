@@ -32,11 +32,23 @@ Google は「その組織の公式サイト」として人が見て確認する�
 
 ```
 https://as1studio.app/                          ← このサイト
-https://as1studio.app/positive-diary-privacy/   ← 既存のプライバシーポリシー（自動）
+https://as1studio.app/positive-diary-privacy/   ← ポジティブ日記（自動）
+https://as1studio.app/tennis-draw-privacy/      ← テニス乱数表（自動）
 ```
 
-`positive-diary-privacy` リポジトリは触らない。`index.html` からの相対リンク
-`./positive-diary-privacy/` はこのままで正しく繋がる。
+各プライバシーポリシーのリポジトリは触らない。`index.html` からの相対リンク
+`./positive-diary-privacy/` `./tennis-draw-privacy/` はこのままで正しく繋がる。
+
+## アプリを増やすときの手順
+
+1. `<アプリ名>-privacy` という名前で **public** リポジトリを作り、`index.html` を置く
+   （書式は `positive-diary-privacy` に合わせる）
+2. このサイトの「提供しているアプリケーション」に `.app` のカードを1つ足し、
+   `./<アプリ名>-privacy/` へリンクする
+3. **事業内容の文面が全アプリに当てはまるかを確認する。**
+   実例: テニス乱数表は広告を表示するため、「利用状況を収集・送信しません」という
+   元の書き方が事実に合わなくなり、「**入力した内容**を収集・送信しません」に直した。
+   アプリが増えるたびにここは効いてくる
 
 **旧 URL は新 URL へリダイレクトされる**ので、Play Console のプライバシーポリシー URL は
 すぐ壊れることはないが、**落ち着いたら新 URL に書き換える**こと（アプリの更新も再ビルドも不要）。
